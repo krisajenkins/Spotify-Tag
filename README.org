@@ -1,0 +1,12 @@
+* Spotify Tag
+
+A game of tag through Spotity: Load a list of tracks, each title forms a list of keywords that can link you to the next track.
+
+Coded for West London Hack Night May 2015.
+
+** Building
+
+#+BEGIN_SRC sh
+elm package install
+make
+#+END_SRC
