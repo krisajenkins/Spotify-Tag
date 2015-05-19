@@ -1,4 +1,4 @@
-all: dist/main.js dist/index.html dist/style.less dist/loading.gif dist/favicon.ico dist/interop.js dist/products.json bootstrap less
+all: dist/main.js dist/index.html dist/style.less dist/interop.js bootstrap less
 
 bootstrap: dist/bootstrap-3.3.4/css/bootstrap-theme.css dist/bootstrap-3.3.4/css/bootstrap-theme.css.map dist/bootstrap-3.3.4/css/bootstrap-theme.min.css dist/bootstrap-3.3.4/css/bootstrap.css dist/bootstrap-3.3.4/css/bootstrap.css.map dist/bootstrap-3.3.4/css/bootstrap.min.css dist/bootstrap-3.3.4/fonts/glyphicons-halflings-regular.eot dist/bootstrap-3.3.4/fonts/glyphicons-halflings-regular.svg dist/bootstrap-3.3.4/fonts/glyphicons-halflings-regular.ttf dist/bootstrap-3.3.4/fonts/glyphicons-halflings-regular.woff dist/bootstrap-3.3.4/fonts/glyphicons-halflings-regular.woff2
 
