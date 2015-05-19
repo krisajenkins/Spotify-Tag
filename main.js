@@ -13905,13 +13905,20 @@ Elm.View.make = function (_elm) {
    $Schema = Elm.Schema.make(_elm),
    $Signal = Elm.Signal.make(_elm),
    $String = Elm.String.make(_elm);
-   var blurbView = A2($Html.p,
+   var blurbView = A2($Html.div,
    _L.fromArray([$Html$Attributes.$class("blurb")]),
-   _L.fromArray([$Html.text("This is a game of Spotify tag. Click on a word, and it will become the search-string for the next series of tracks. Coded for ")
-                ,A2($Html.a,
-                _L.fromArray([$Html$Attributes.href("http://www.meetup.com/West-London-Hack-Night/")]),
-                _L.fromArray([$Html.text("West London Hack Night")]))
-                ,$Html.text(" May 2015.")]));
+   _L.fromArray([A2($Html.p,
+                _L.fromArray([]),
+                _L.fromArray([$Html.text("This is a game of Spotify tag. Click on a word, and it will become the search-string for the next series of tracks. Coded for ")
+                             ,A2($Html.a,
+                             _L.fromArray([$Html$Attributes.href("http://www.meetup.com/West-London-Hack-Night/")]),
+                             _L.fromArray([$Html.text("West London Hack Night")]))
+                             ,$Html.text(" May 2015.")]))
+                ,A2($Html.p,
+                _L.fromArray([]),
+                _L.fromArray([A2($Html.a,
+                _L.fromArray([$Html$Attributes.href("https://github.com/krisajenkins/Spotify-Tag")]),
+                _L.fromArray([$Html.text("Source Code")]))]))]));
    var albumImage = function (album) {
       return function () {
          var _v0 = $List.head(album.images);
@@ -14005,7 +14012,7 @@ Elm.View.make = function (_elm) {
                          case "Nothing":
                          return "Get Started!";}
                       _U.badCase($moduleName,
-                      "between lines 60 and 62");
+                      "between lines 63 and 65");
                    }())]))]),
       _L.fromArray([A2(tracksView,
       uiChannel,
