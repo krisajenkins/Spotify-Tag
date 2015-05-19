@@ -4365,7 +4365,6 @@ Elm.Main.make = function (_elm) {
    $Http = Elm.Http.make(_elm),
    $Json$Decode = Elm.Json.Decode.make(_elm),
    $Maybe = Elm.Maybe.make(_elm),
-   $Result = Elm.Result.make(_elm),
    $Schema = Elm.Schema.make(_elm),
    $Signal = Elm.Signal.make(_elm),
    $View = Elm.View.make(_elm);
@@ -4415,7 +4414,7 @@ Elm.Main.make = function (_elm) {
    constructQueryUrl,
    uiWords);
    var query = A2($Signal._op["<~"],
-   $Http.map($Json$Decode.decodeString($Schema.decodeSpotifySearch)),
+   $Http.mapResult($Json$Decode.decodeString($Schema.decodeSpotifySearch)),
    $Http.sendGet(wordRequests));
    var actionSignal = $Signal.mergeMany(_L.fromArray([uiMailbox.signal
                                                      ,A2($Signal._op["<~"],
@@ -13086,8 +13085,7 @@ Elm.Schema.make = function (_elm) {
    $Http = Elm.Http.make(_elm),
    $Json$Decode = Elm.Json.Decode.make(_elm),
    $Json$Decode$Extra = Elm.Json.Decode.Extra.make(_elm),
-   $Maybe = Elm.Maybe.make(_elm),
-   $Result = Elm.Result.make(_elm);
+   $Maybe = Elm.Maybe.make(_elm);
    var Model = F2(function (a,b) {
       return {_: {}
              ,chosenWord: a
@@ -13901,7 +13899,6 @@ Elm.View.make = function (_elm) {
    $Http = Elm.Http.make(_elm),
    $List = Elm.List.make(_elm),
    $Maybe = Elm.Maybe.make(_elm),
-   $Result = Elm.Result.make(_elm),
    $Schema = Elm.Schema.make(_elm),
    $Signal = Elm.Signal.make(_elm),
    $String = Elm.String.make(_elm);
@@ -13981,12 +13978,9 @@ Elm.View.make = function (_elm) {
       return function () {
          switch (r.ctor)
          {case "Success":
-            switch (r._0.ctor)
-              {case "Ok":
-                 return A2(trackListView,
-                   uiChannel,
-                   r._0._0);}
-              break;}
+            return A2(trackListView,
+              uiChannel,
+              r._0);}
          return A2($Html.div,
          _L.fromArray([]),
          _L.fromArray([A2($Html.code,
@@ -14006,9 +14000,9 @@ Elm.View.make = function (_elm) {
                    ,A2($Html.h1,
                    _L.fromArray([]),
                    _L.fromArray([$Html.text(function () {
-                      var _v5 = model.chosenWord;
-                      switch (_v5.ctor)
-                      {case "Just": return _v5._0;
+                      var _v4 = model.chosenWord;
+                      switch (_v4.ctor)
+                      {case "Just": return _v4._0;
                          case "Nothing":
                          return "Get Started!";}
                       _U.badCase($moduleName,
