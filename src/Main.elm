@@ -34,9 +34,9 @@ uiWords = Signal.filter (\a -> case a of
 wordRequests : Signal String
 wordRequests = constructQueryUrl <~ uiWords
 
-query : Signal (Response (Result String (List Track)))
-query = Http.map (JsonDecode.decodeString decodeSpotifySearch)
-                 <~ Http.sendGet wordRequests
+query : Signal (Response (List Track))
+query = Http.mapResult (JsonDecode.decodeString decodeSpotifySearch)
+                       <~ Http.sendGet wordRequests
 
 initialModel : Model
 initialModel =

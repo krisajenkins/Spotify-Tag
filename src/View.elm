@@ -38,10 +38,10 @@ trackListView uiChannel tracks =
   div [class "row"]
       (List.map (trackView uiChannel) tracks)
 
-tracksView : Address Action -> Response (Result String (List Track)) -> Html
+tracksView : Address Action -> Response (List Track) -> Html
 tracksView uiChannel r =
   case r of
-    Http.Success (Ok tracks) -> trackListView uiChannel tracks
+    Http.Success tracks -> trackListView uiChannel tracks
     _ -> div [] [code [] [text (toString r)]]
 
 blurbView : Html

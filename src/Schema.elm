@@ -8,7 +8,7 @@ import Json.Decode.Extra exposing (apply,date)
 type Action
   = NoOp
   | ChooseWord String
-  | QueryResponse (Response (Result String (List Track)))
+  | QueryResponse (Response (List Track))
 
 type alias Artist =
   {id : String
@@ -54,4 +54,4 @@ decodeSpotifySearch =
 
 type alias Model =
   {chosenWord : Maybe String
-  ,tracks : Response (Result String (List Track))}
+  ,tracks : Response (List Track)}
