@@ -46,10 +46,13 @@ tracksView uiChannel r =
 
 blurbView : Html
 blurbView =
-  p [class "blurb"]
-    [text "This is a game of Spotify tag. Click on a word, and it will become the search-string for the next series of tracks. Coded for "
-    ,a [href "http://www.meetup.com/West-London-Hack-Night/"] [text "West London Hack Night"]
-    ,text " May 2015."]
+  div [class "blurb"]
+      [p []
+             [text "This is a game of Spotify tag. Click on a word, and it will become the search-string for the next series of tracks. Coded for "
+             ,a [href "http://www.meetup.com/West-London-Hack-Night/"] [text "West London Hack Night"]
+             ,text " May 2015."]
+      ,p []
+         [a [href "https://github.com/krisajenkins/Spotify-Tag"] [text "Source Code"]]]
 
 rootView : Address Action -> Model -> Html
 rootView uiChannel model =
