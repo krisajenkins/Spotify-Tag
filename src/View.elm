@@ -44,13 +44,21 @@ tracksView uiChannel r =
     Http.Success (Ok tracks) -> trackListView uiChannel tracks
     _ -> div [] [code [] [text (toString r)]]
 
+blurbView : Html
+blurbView =
+  p [class "blurb"]
+    [text "This is a game of Spotify tag. Click on a word, and it will become the search-string for the next series of tracks. Coded for "
+    ,a [href "http://www.meetup.com/West-London-Hack-Night/"] [text "West London Hack Night"]
+    ,text " May 2015."]
+
 rootView : Address Action -> Model -> Html
 rootView uiChannel model =
   div []
       [div [id "main-container"
            ,class "container"]
-           (h1 [] [text (case model.chosenWord of
+           ([blurbView
+            ,h1 [] [text (case model.chosenWord of
                            Nothing -> "Get Started!"
-                           Just s -> s)]
-           ::
+                           Just s -> s)]]
+           ++
            [tracksView uiChannel model.tracks])]
