@@ -13905,6 +13905,13 @@ Elm.View.make = function (_elm) {
    $Schema = Elm.Schema.make(_elm),
    $Signal = Elm.Signal.make(_elm),
    $String = Elm.String.make(_elm);
+   var blurbView = A2($Html.p,
+   _L.fromArray([$Html$Attributes.$class("blurb")]),
+   _L.fromArray([$Html.text("This is a game of Spotify tag. Click on a word, and it will become the search-string for the next series of tracks. Coded for ")
+                ,A2($Html.a,
+                _L.fromArray([$Html$Attributes.href("http://www.meetup.com/West-London-Hack-Night/")]),
+                _L.fromArray([$Html.text("West London Hack Night")]))
+                ,$Html.text(" May 2015.")]));
    var albumImage = function (album) {
       return function () {
          var _v0 = $List.head(album.images);
@@ -13987,18 +13994,19 @@ Elm.View.make = function (_elm) {
       _L.fromArray([A2($Html.div,
       _L.fromArray([$Html$Attributes.id("main-container")
                    ,$Html$Attributes.$class("container")]),
-      A2($List._op["::"],
-      A2($Html.h1,
-      _L.fromArray([]),
-      _L.fromArray([$Html.text(function () {
-         var _v5 = model.chosenWord;
-         switch (_v5.ctor)
-         {case "Just": return _v5._0;
-            case "Nothing":
-            return "Get Started!";}
-         _U.badCase($moduleName,
-         "between lines 52 and 54");
-      }())])),
+      A2($Basics._op["++"],
+      _L.fromArray([blurbView
+                   ,A2($Html.h1,
+                   _L.fromArray([]),
+                   _L.fromArray([$Html.text(function () {
+                      var _v5 = model.chosenWord;
+                      switch (_v5.ctor)
+                      {case "Just": return _v5._0;
+                         case "Nothing":
+                         return "Get Started!";}
+                      _U.badCase($moduleName,
+                      "between lines 60 and 62");
+                   }())]))]),
       _L.fromArray([A2(tracksView,
       uiChannel,
       model.tracks)])))]));
