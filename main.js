@@ -13945,7 +13945,7 @@ Elm.View.make = function (_elm) {
    var trackView = F2(function (uiChannel,
    track) {
       return A2($Html.div,
-      _L.fromArray([$Html$Attributes.$class("col-xs-2 track")
+      _L.fromArray([$Html$Attributes.$class("col-xs-4 col-sm-3 col-md-2 track")
                    ,$Html$Attributes.id(track.id)]),
       A2($List._op["::"],
       albumImage(track.album),
