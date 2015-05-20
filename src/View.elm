@@ -24,7 +24,7 @@ albumImage album =
 
 trackView : Address Action -> Track -> Html
 trackView uiChannel track =
-  div [class "col-xs-2 track"
+  div [class "col-xs-4 col-sm-3 col-md-2 track"
       ,id track.id]
       (albumImage track.album
       ::
